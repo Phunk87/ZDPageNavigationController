@@ -1,0 +1,6 @@
+framework module SMPageControl {
+  umbrella header "Pods-Tests-SMPageControl-umbrella.h"
+
+  export *
+  module * { export * }
+}

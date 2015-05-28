@@ -7,15 +7,33 @@
 //
 
 #import "ZDAppDelegate.h"
+#import "ZDViewController.h"
+#import "ZDPageNavigationController.h"
 
 @implementation ZDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    ZDViewController *vc1 = [storyboard instantiateViewControllerWithIdentifier:@"vc"];
+    vc1.title = @"SHOW";
+    vc1.text = @"1";
+    ZDViewController *vc2 = [storyboard instantiateViewControllerWithIdentifier:@"vc"];
+    vc2.title = @"ME";
+    vc2.text = @"2";
+    ZDViewController *vc3 = [storyboard instantiateViewControllerWithIdentifier:@"vc"];
+    vc3.title = @"THE";
+    vc3.text = @"3";
+    ZDViewController *vc4 = [storyboard instantiateViewControllerWithIdentifier:@"vc"];
+    vc4.title = @"MONEY";
+    vc4.text = @"4";
+    
+    ZDPageNavigationController *pageNavController = (ZDPageNavigationController *)self.window.rootViewController;
+    pageNavController.pageViewControllers = @[vc1, vc2, vc3, vc4];
+    
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -48,8 +48,10 @@ code_sign() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework 'SMPageControl.framework'
   install_framework 'ZDPageNavigationController.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework 'SMPageControl.framework'
   install_framework 'ZDPageNavigationController.framework'
 fi

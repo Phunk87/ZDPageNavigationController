@@ -1,5 +1,7 @@
 PODS:
-  - ZDPageNavigationController (0.1.0)
+  - SMPageControl (1.2)
+  - ZDPageNavigationController (0.1.0):
+    - SMPageControl
 
 DEPENDENCIES:
   - ZDPageNavigationController (from `../`)
@@ -9,6 +11,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ZDPageNavigationController: 6d33792ae328f058d72653caf951a1ac9adf6105
+  SMPageControl: 922892813001cfaf059e86e6801f46a967e9ee29
+  ZDPageNavigationController: 6c06ef34b2f98eb377d2b40089d70e1d8bb2b794
 
 COCOAPODS: 0.37.1

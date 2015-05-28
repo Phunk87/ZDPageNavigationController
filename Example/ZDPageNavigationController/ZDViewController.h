@@ -10,4 +10,7 @@
 
 @interface ZDViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (nonatomic, strong) NSString  *text;
+
 @end

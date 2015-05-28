@@ -10,19 +10,12 @@
 Pod::Spec.new do |s|
   s.name             = "ZDPageNavigationController"
   s.version          = "0.1.0"
-  s.summary          = "A short description of ZDPageNavigationController."
-  s.description      = <<-DESC
-                       An optional longer description of ZDPageNavigationController
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/ZDPageNavigationController"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.summary          = "A pagable NavigationController in Objective-C."
+  s.homepage         = "https://github.com/0dayZh/ZDPageNavigationController"
   s.license          = 'MIT'
   s.author           = { "0dayZh" => "0day.zh@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/ZDPageNavigationController.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/0dayZh/ZDPageNavigationController.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/0dayZh'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
@@ -32,7 +25,9 @@ Pod::Spec.new do |s|
     'ZDPageNavigationController' => ['Pod/Assets/*.png']
   }
 
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -all_load -force_load' }
+
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'SMPageControl'
 end

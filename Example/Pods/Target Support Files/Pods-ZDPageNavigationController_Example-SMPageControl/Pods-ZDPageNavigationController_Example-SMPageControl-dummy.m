@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_ZDPageNavigationController_Example_SMPageControl : NSObject
+@end
+@implementation PodsDummy_Pods_ZDPageNavigationController_Example_SMPageControl
+@end

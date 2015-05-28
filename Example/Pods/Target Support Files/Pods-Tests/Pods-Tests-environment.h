@@ -6,6 +6,12 @@
 // project.
 
 
+// SMPageControl
+#define COCOAPODS_POD_AVAILABLE_SMPageControl
+#define COCOAPODS_VERSION_MAJOR_SMPageControl 1
+#define COCOAPODS_VERSION_MINOR_SMPageControl 2
+#define COCOAPODS_VERSION_PATCH_SMPageControl 0
+
 // ZDPageNavigationController
 #define COCOAPODS_POD_AVAILABLE_ZDPageNavigationController
 #define COCOAPODS_VERSION_MAJOR_ZDPageNavigationController 0
