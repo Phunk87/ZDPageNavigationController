@@ -94,7 +94,7 @@ UIScrollViewDelegate
 static NSUInteger s_index = 0;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat width = CGRectGetWidth(scrollView.frame);
-    CGFloat percent = (scrollView.contentOffset.x + width * s_index - width) / scrollView.contentSize.width;
+    CGFloat percent = (scrollView.contentOffset.x + width * s_index - width) / ((self.pageViewControllers.count - 1) * width);
     self.titleView.percent = percent;
 }
 
