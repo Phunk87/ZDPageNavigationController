@@ -1,0 +1,14 @@
+PODS:
+  - ZDPageNavigationController (0.1.0)
+
+DEPENDENCIES:
+  - ZDPageNavigationController (from `../`)
+
+EXTERNAL SOURCES:
+  ZDPageNavigationController:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ZDPageNavigationController: 6d33792ae328f058d72653caf951a1ac9adf6105
+
+COCOAPODS: 0.37.1

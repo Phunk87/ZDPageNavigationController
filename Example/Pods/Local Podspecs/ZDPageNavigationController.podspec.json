@@ -1,0 +1,25 @@
+{
+  "name": "ZDPageNavigationController",
+  "version": "0.1.0",
+  "summary": "A short description of ZDPageNavigationController.",
+  "description": "                       An optional longer description of ZDPageNavigationController\n\n                       * Markdown format.\n                       * Don't worry about the indent, we strip it!\n",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/ZDPageNavigationController",
+  "license": "MIT",
+  "authors": {
+    "0dayZh": "0day.zh@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/ZDPageNavigationController.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "ZDPageNavigationController": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}
