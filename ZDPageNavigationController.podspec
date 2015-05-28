@@ -15,7 +15,6 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = { "0dayZh" => "0day.zh@gmail.com" }
   s.source           = { :git => "https://github.com/0dayZh/ZDPageNavigationController.git", :tag => s.version.to_s }
-  s.social_media_url = 'https://twitter.com/0dayZh'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
