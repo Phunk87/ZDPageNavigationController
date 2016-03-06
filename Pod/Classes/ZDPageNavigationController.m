@@ -31,9 +31,6 @@ UIScrollViewDelegate
     self.pageViewController.dataSource = self;
     self.pageViewController.delegate = self;
     self.navigationBar.translucent = NO;
-    
-    self.navigationBar.titleTextAttributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:20],
-                                               NSForegroundColorAttributeName: [UIColor blackColor]};
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
