@@ -1,6 +1,0 @@
-framework module SMPageControl {
-  umbrella header "Pods-ZDPageNavigationController_Example-SMPageControl-umbrella.h"
-
-  export *
-  module * { export * }
-}

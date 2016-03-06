@@ -1,5 +1,5 @@
 framework module ZDPageNavigationController {
-  umbrella header "Pods-Tests-ZDPageNavigationController-umbrella.h"
+  umbrella header "ZDPageNavigationController-umbrella.h"
 
   export *
   module * { export * }

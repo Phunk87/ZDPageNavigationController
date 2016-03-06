@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28E641DBD56B2AEB2F46DE9C /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B58B98E0AB4C84D8D8C468 /* Pods_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		28E641DBD56B2AEB2F46DE9C /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B58B98E0AB4C84D8D8C468 /* Pods_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -22,7 +22,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		B1A278034A930C4C7BC3E97E /* Pods_ZDPageNavigationController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE11056CA656EE62A65D650 /* Pods_ZDPageNavigationController_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		B1A278034A930C4C7BC3E97E /* Pods_ZDPageNavigationController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE11056CA656EE62A65D650 /* Pods_ZDPageNavigationController_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */

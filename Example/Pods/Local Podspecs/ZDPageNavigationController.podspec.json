@@ -1,6 +1,6 @@
 {
   "name": "ZDPageNavigationController",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "summary": "A pagable NavigationController in Objective-C.",
   "homepage": "https://github.com/0dayZh/ZDPageNavigationController",
   "license": "MIT",
@@ -9,9 +9,8 @@
   },
   "source": {
     "git": "https://github.com/0dayZh/ZDPageNavigationController.git",
-    "tag": "0.1.0"
+    "tag": "0.1.2"
   },
-  "social_media_url": "https://twitter.com/0dayZh",
   "platforms": {
     "ios": "7.0"
   },

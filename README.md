@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/0dayZh/ZDPageNavigationController.svg?branch=master)](https://travis-ci.org/0dayZh/ZDPageNavigationController)
+
 # ZDPageNavigationController
 
 ## Usage
