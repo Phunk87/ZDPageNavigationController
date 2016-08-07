@@ -16,17 +16,30 @@
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     ZDViewController *vc1 = [storyboard instantiateViewControllerWithIdentifier:@"vc"];
-    vc1.title = @"SHOW";
+    vc1.title = @"MASTER PASSWORD";
     vc1.text = @"1";
+    vc1.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Item" style:UIBarButtonItemStyleDone target:nil action:nil];
+    
     ZDViewController *vc2 = [storyboard instantiateViewControllerWithIdentifier:@"vc"];
     vc2.title = @"ME";
     vc2.text = @"2";
+    vc2.navigationItem.leftBarButtonItems = @[
+                                              [[UIBarButtonItem alloc] initWithTitle:@"Item1" style:UIBarButtonItemStyleDone target:nil action:nil],
+                                              [[UIBarButtonItem alloc] initWithTitle:@"Item2" style:UIBarButtonItemStyleDone target:nil action:nil]
+                                              ];
+    
     ZDViewController *vc3 = [storyboard instantiateViewControllerWithIdentifier:@"vc"];
     vc3.title = @"THE";
     vc3.text = @"3";
+    vc3.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Item" style:UIBarButtonItemStyleDone target:nil action:nil];
+    
     ZDViewController *vc4 = [storyboard instantiateViewControllerWithIdentifier:@"vc"];
     vc4.title = @"MONEY";
     vc4.text = @"4";
+    vc4.navigationItem.rightBarButtonItems = @[
+                                              [[UIBarButtonItem alloc] initWithTitle:@"Item1" style:UIBarButtonItemStyleDone target:nil action:nil],
+                                              [[UIBarButtonItem alloc] initWithTitle:@"Item2" style:UIBarButtonItemStyleDone target:nil action:nil]
+                                              ];
     
     ZDPageNavigationController *pageNavController = (ZDPageNavigationController *)self.window.rootViewController;
     pageNavController.pageViewControllers = @[vc1, vc2, vc3, vc4];
