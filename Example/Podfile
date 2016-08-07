@@ -1,12 +1,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'ZDPageNavigationController_Example', :exclusive => true do
+target 'ZDPageNavigationController_Example' do
   pod "ZDPageNavigationController", :path => "../"
 end
 
-target 'Tests', :exclusive => true do
+target 'Tests'
   pod "ZDPageNavigationController", :path => "../"
-
-  
 end
