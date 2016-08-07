@@ -71,6 +71,9 @@ UIScrollViewDelegate
             [(UIScrollView *)view setDelegate:self];
         }
     }
+    
+    [self _updateNavigationItemsToViewController:[self.pageViewController.viewControllers lastObject]
+                                        animated:NO];
 }
 
 - (void)setPageViewControllers:(NSArray *)pageViewControllers {
@@ -84,6 +87,17 @@ UIScrollViewDelegate
     
     [self.pageViewController setViewControllers:@[pageViewControllers[0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     [self.titleView reloadData];
+}
+
+- (void)_updateNavigationItemsToViewController:(UIViewController *)vc animated:(BOOL)animated {
+    [self.pageViewController.navigationItem setLeftBarButtonItem:vc.navigationItem.leftBarButtonItem
+                                                        animated:animated];
+    [self.pageViewController.navigationItem setLeftBarButtonItems:vc.navigationItem.leftBarButtonItems
+                                                         animated:animated];
+    [self.pageViewController.navigationItem setRightBarButtonItem:vc.navigationItem.rightBarButtonItem
+                                                         animated:animated];
+    [self.pageViewController.navigationItem setRightBarButtonItems:vc.navigationItem.rightBarButtonItems
+                                                          animated:animated];
 }
 
 #pragma mark - <UIScrollViewDelegate>
@@ -131,11 +145,18 @@ static NSUInteger s_index = 0;
 
 #pragma mark - <UIPageViewControllerDelegate>
 
+- (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers {
+    [self _updateNavigationItemsToViewController:nil animated:YES];
+}
+
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
     if (completed) {
         UIViewController *selectedVC = [self.pageViewController.viewControllers lastObject];
         s_index = [self.pageViewControllers indexOfObject:selectedVC];
     }
+    
+    [self _updateNavigationItemsToViewController:[self.pageViewController.viewControllers lastObject]
+                                        animated:YES];
 }
 
 @end
