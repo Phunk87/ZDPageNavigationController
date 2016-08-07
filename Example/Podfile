@@ -5,6 +5,6 @@ target 'ZDPageNavigationController_Example' do
   pod "ZDPageNavigationController", :path => "../"
 end
 
-target 'Tests'
+target 'Tests' do
   pod "ZDPageNavigationController", :path => "../"
 end
