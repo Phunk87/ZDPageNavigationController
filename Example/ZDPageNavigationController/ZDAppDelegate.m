@@ -46,6 +46,10 @@
     pageNavController.maskColor = [UIColor redColor];
     pageNavController.pageViewControllers = @[vc1, vc2, vc3, vc4];
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [pageNavController setCurrentIndex:2 animated:YES];
+    });
+    
     pageNavController.view.backgroundColor = [UIColor yellowColor];
     
     return YES;

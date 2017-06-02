@@ -196,4 +196,16 @@ static NSUInteger s_index = 0;
                                         animated:YES];
 }
 
+- (void)setCurrentIndex:(NSUInteger)index animated:(BOOL)animated {
+    if (s_index == index) {
+        return;
+    }
+    
+    [self.pageViewController setViewControllers:@[self.pageViewControllers[index]]
+                                      direction:index > s_index ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse
+                                       animated:animated
+                                     completion:nil];
+    
+}
+
 @end
