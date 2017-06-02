@@ -201,10 +201,15 @@ static NSUInteger s_index = 0;
         return;
     }
     
+    __weak typeof(self) wself = self;
     [self.pageViewController setViewControllers:@[self.pageViewControllers[index]]
                                       direction:index > s_index ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse
                                        animated:animated
-                                     completion:nil];
+                                     completion:^(BOOL finished) {
+                                         CGFloat width = CGRectGetWidth(wself.titleView.scrollView.frame);
+                                         CGFloat percent = (wself.titleView.scrollView.contentOffset.x + width * s_index - width) / ((wself.pageViewControllers.count - 1) * width);
+                                         wself.titleView.percent = percent;
+                                     }];
     
 }
 

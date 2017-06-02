@@ -16,7 +16,6 @@
 @interface ZDPageNavigationBarTitleView ()
 
 @property (nonatomic, strong) UIView            *maskView;
-@property (nonatomic, strong) UIScrollView      *scrollView;
 @property (nonatomic, strong) NSMutableArray    *titleLabels;
 @property (nonatomic, strong) SMPageControl     *pageControl;
 
