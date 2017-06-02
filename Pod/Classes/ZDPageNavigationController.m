@@ -206,9 +206,7 @@ static NSUInteger s_index = 0;
                                       direction:index > s_index ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse
                                        animated:animated
                                      completion:^(BOOL finished) {
-                                         CGFloat width = CGRectGetWidth(wself.titleView.scrollView.frame);
-                                         CGFloat percent = (wself.titleView.scrollView.contentOffset.x + width * s_index - width) / ((wself.pageViewControllers.count - 1) * width);
-                                         wself.titleView.percent = percent;
+                                         wself.titleView.percent = index / (CGFloat)wself.pageViewControllers.count;
                                      }];
     
 }
