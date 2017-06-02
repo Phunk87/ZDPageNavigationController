@@ -78,6 +78,32 @@ UIScrollViewDelegate
                                         animated:NO];
 }
 
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return self.topViewController.preferredInterfaceOrientationForPresentation;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return self.topViewController.supportedInterfaceOrientations;
+}
+
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if (!viewController.navigationItem.leftBarButtonItem && [UIImage imageNamed:@"btn-back"]) {
+        UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"btn-back"] style:UIBarButtonItemStyleDone target:self action:@selector(back:)];
+        viewController.navigationItem.leftBarButtonItem = back;
+    }
+    
+    [super pushViewController:viewController animated:animated];
+}
+
+- (void)back:(id)sender {
+    [self popViewControllerAnimated:YES];
+}
+
+
 - (void)setPageViewControllers:(NSArray<UIViewController *> *)pageViewControllers {
     _pageViewControllers = pageViewControllers;
     
