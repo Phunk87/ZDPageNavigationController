@@ -16,11 +16,6 @@
   },
   "requires_arc": true,
   "source_files": "Pod/Classes/**/*",
-  "resource_bundles": {
-    "ZDPageNavigationController": [
-      "Pod/Assets/*.png"
-    ]
-  },
   "xcconfig": {
     "OTHER_LDFLAGS": "-ObjC -all_load -force_load"
   },
