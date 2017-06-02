@@ -37,7 +37,8 @@
         UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:kFrame];
         scrollView.showsHorizontalScrollIndicator = NO;
         scrollView.showsVerticalScrollIndicator = NO;
-        scrollView.userInteractionEnabled = NO;
+        scrollView.userInteractionEnabled = YES;
+        scrollView.scrollEnabled = NO;
         [self addSubview:scrollView];
         self.scrollView = scrollView;
         

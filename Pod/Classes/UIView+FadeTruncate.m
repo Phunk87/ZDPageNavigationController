@@ -16,8 +16,8 @@
                         (id)CFBridgingRelease(CGColorCreateCopyWithAlpha(color.CGColor, 0)),
                         (id)color.CGColor];
     NSArray *locations = @[@(0),
-                           @(0.3),
-                           @(0.7),
+                           @(0.25),
+                           @(0.75),
                            @(1)];
     CGPoint startPoint = (CGPoint){0, 0.5};
     CGPoint endPoint = (CGPoint){1, 0.5};

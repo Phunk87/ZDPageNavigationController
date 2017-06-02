@@ -60,11 +60,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="4LL-hQ-Ncy">
                         <nil key="title"/>
-                        <view key="titleView" contentMode="scaleToFill" id="d7p-z5-T3G">
-                            <rect key="frame" x="112.5" y="5.5" width="150" height="33"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LNy-4N-czm">
+                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
+                            <state key="normal" title="Button"/>
+                        </button>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
