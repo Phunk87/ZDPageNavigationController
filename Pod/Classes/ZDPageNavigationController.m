@@ -210,7 +210,7 @@ static NSUInteger s_index = 0;
                                      }];
     
     [wself.titleView setCurrentIndex:index animated:animated];
-    
+    s_index = index;
 }
 
 @end
