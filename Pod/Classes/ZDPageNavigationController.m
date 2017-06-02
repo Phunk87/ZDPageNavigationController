@@ -206,8 +206,10 @@ static NSUInteger s_index = 0;
                                       direction:index > s_index ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse
                                        animated:animated
                                      completion:^(BOOL finished) {
-                                         wself.titleView.percent = index / (CGFloat)wself.pageViewControllers.count;
+                                         
                                      }];
+    
+    [wself.titleView setCurrentIndex:index animated:animated];
     
 }
 

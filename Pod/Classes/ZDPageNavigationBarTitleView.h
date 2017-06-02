@@ -23,7 +23,6 @@
 
 @property (nonatomic, weak) UINavigationBar *navigationBar;
 
-@property (nonatomic, strong) UIScrollView      *scrollView;
 @property (nonatomic, strong) UIColor       *maskColor;
 @property (nonatomic, assign) NSUInteger    currentIndex;
 @property (nonatomic, assign) CGFloat       percent;
