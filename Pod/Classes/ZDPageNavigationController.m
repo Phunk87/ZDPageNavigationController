@@ -206,11 +206,12 @@ static NSUInteger s_index = 0;
                                       direction:index > s_index ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse
                                        animated:animated
                                      completion:^(BOOL finished) {
-                                         
+                                         s_index = index;
+                                         [wself _updateNavigationItemsToViewController:[wself.pageViewController.viewControllers lastObject]
+                                                                             animated:animated];
                                      }];
     
     [wself.titleView setCurrentIndex:index animated:animated];
-    s_index = index;
 }
 
 @end
