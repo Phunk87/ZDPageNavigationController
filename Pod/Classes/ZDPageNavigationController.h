@@ -10,8 +10,8 @@
 
 @interface ZDPageNavigationController : UINavigationController
 
-@property (nonatomic, strong) NSArray *pageViewControllers;
-
-- (instancetype)initWithPageViewControllers:(NSArray *)pageViewControllers;
+@property (nonatomic, strong) NSArray<UIViewController*> *pageViewControllers;
+@property (nonatomic, assign) BOOL usingTitleView;  // default as NO
+@property (nonatomic, strong) UIColor   *maskColor; // default as white
 
 @end

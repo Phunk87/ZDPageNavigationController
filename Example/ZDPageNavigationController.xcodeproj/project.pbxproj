@@ -22,6 +22,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		E9FA8C1A1EE1A0B600B06913 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9FA8C191EE1A0B600B06913 /* Launch Screen.storyboard */; };
 		F1A24915FE4626EEF0B32B31 /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE64F781468048D36819BE8D /* Pods_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		AAF4EAB73B378C6279CD3E50 /* Pods-ZDPageNavigationController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZDPageNavigationController_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZDPageNavigationController_Example/Pods-ZDPageNavigationController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		CE64F781468048D36819BE8D /* Pods_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E34365B6DBFA6135E91E6F0F /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		E9FA8C191EE1A0B600B06913 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		EA621B0C73A4FD3C21C6A320 /* ZDPageNavigationController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ZDPageNavigationController.podspec; path = ../ZDPageNavigationController.podspec; sourceTree = "<group>"; };
 		F1802C98D378E0DCB5DCA0A5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		FAE2442E87F45E616F38D512 /* Pods-ZDPageNavigationController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZDPageNavigationController_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZDPageNavigationController_Example/Pods-ZDPageNavigationController_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				6003F59C195388D20070C39A /* ZDAppDelegate.h */,
 				6003F59D195388D20070C39A /* ZDAppDelegate.m */,
 				6003F59F195388D20070C39A /* Main_iPhone.storyboard */,
+				E9FA8C191EE1A0B600B06913 /* Launch Screen.storyboard */,
 				6003F5A5195388D20070C39A /* ZDViewController.h */,
 				6003F5A6195388D20070C39A /* ZDViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -281,6 +284,7 @@
 			files = (
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */,
+				E9FA8C1A1EE1A0B600B06913 /* Launch Screen.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,7 +487,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -521,7 +525,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

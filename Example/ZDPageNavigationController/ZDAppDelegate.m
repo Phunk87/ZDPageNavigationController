@@ -42,7 +42,11 @@
                                               ];
     
     ZDPageNavigationController *pageNavController = (ZDPageNavigationController *)self.window.rootViewController;
+    pageNavController.usingTitleView = YES;
+    pageNavController.maskColor = [UIColor redColor];
     pageNavController.pageViewControllers = @[vc1, vc2, vc3, vc4];
+    
+    pageNavController.view.backgroundColor = [UIColor yellowColor];
     
     return YES;
 }

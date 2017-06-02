@@ -14,6 +14,8 @@
 @required
 - (NSUInteger)numberOfTitles;
 - (NSString *)titleAtIndex:(NSUInteger)index;
+- (UIView *)titleViewAtIndex:(NSUInteger)index;
+- (BOOL)shouldUsingTitleView;
 
 @end
 
@@ -21,6 +23,7 @@
 
 @property (nonatomic, weak) UINavigationBar *navigationBar;
 
+@property (nonatomic, strong) UIColor       *maskColor;
 @property (nonatomic, assign) NSUInteger    currentIndex;
 @property (nonatomic, assign) CGFloat       percent;
 @property (nonatomic, weak) id<ZDPageNavigationBarTitleViewDataSource> dataSource;

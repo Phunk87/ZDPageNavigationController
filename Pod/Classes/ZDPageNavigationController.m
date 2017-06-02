@@ -27,10 +27,11 @@ UIScrollViewDelegate
 - (void)_init {
     NSAssert([self.topViewController isKindOfClass:[UIPageViewController class]], @"RootViewController should be a UIPageViewController instance.");
     self.pageViewController = (UIPageViewController *)self.topViewController;
-    self.pageViewController.view.backgroundColor = [UIColor whiteColor];
     self.pageViewController.dataSource = self;
     self.pageViewController.delegate = self;
     self.navigationBar.translucent = NO;
+    self.usingTitleView = NO;
+    self.maskColor = [UIColor whiteColor];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -51,13 +52,14 @@ UIScrollViewDelegate
     return self;
 }
 
-- (instancetype)initWithPageViewControllers:(NSArray *)pageViewControllers {
+- (instancetype)initWithPageViewControllers:(NSArray<UIViewController *> *)pageViewControllers {
     UIPageViewController *pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
                                                               navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
                                                                             options:nil];
     self = [super initWithRootViewController:pageViewController];
     if (self) {
         [self _init];
+        self.pageViewControllers = pageViewControllers;
     }
     
     return self;
@@ -76,13 +78,14 @@ UIScrollViewDelegate
                                         animated:NO];
 }
 
-- (void)setPageViewControllers:(NSArray *)pageViewControllers {
+- (void)setPageViewControllers:(NSArray<UIViewController *> *)pageViewControllers {
     _pageViewControllers = pageViewControllers;
     
     if (!_titleView) {
         self.titleView = [[ZDPageNavigationBarTitleView alloc] initWithNavigationBar:self.navigationBar];
         self.titleView.dataSource = self;
         self.pageViewController.navigationItem.titleView = self.titleView;
+        self.titleView.maskColor = self.maskColor;
     }
     
     [self.pageViewController setViewControllers:@[pageViewControllers[0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
@@ -119,11 +122,19 @@ static NSUInteger s_index = 0;
     return ((UIViewController *)self.pageViewControllers[index]).title;
 }
 
+- (UIView *)titleViewAtIndex:(NSUInteger)index {
+    return self.pageViewControllers[index].navigationItem.titleView;
+}
+
+- (BOOL)shouldUsingTitleView {
+    return self.usingTitleView;
+}
+
 #pragma mark - <UIPageViewControllerDataSource>
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     if (pageViewController == self.pageViewController) {
-        NSUInteger idx = [self.pageViewControllers indexOfObject:viewController];
+        NSUInteger idx = [self.pageViewControllers indexOfObject:(UIViewController *)viewController];
         if (idx != NSNotFound && idx > 0) {
             return self.pageViewControllers[idx - 1];
         }
@@ -134,7 +145,7 @@ static NSUInteger s_index = 0;
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     if (pageViewController == self.pageViewController) {
-        NSUInteger idx = [self.pageViewControllers indexOfObject:viewController];
+        NSUInteger idx = [self.pageViewControllers indexOfObject:(UIViewController *)viewController];
         if (idx != NSNotFound && idx < self.pageViewControllers.count - 1) {
             return self.pageViewControllers[idx + 1];
         }

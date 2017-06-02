@@ -32,6 +32,8 @@
         self.navigationBar = navigationBar;
         self.titleLabels = [@[] mutableCopy];
         
+        self.backgroundColor = [UIColor clearColor];
+        
         UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:kFrame];
         scrollView.showsHorizontalScrollIndicator = NO;
         scrollView.showsVerticalScrollIndicator = NO;
@@ -42,7 +44,7 @@
         UIView *maskView = [[UIView alloc] initWithFrame:kFrame];
         maskView.backgroundColor = [UIColor clearColor];
         maskView.userInteractionEnabled = NO;
-        [maskView fadeHeadAndTailWithColor:[UIColor whiteColor]];
+        
         [self addSubview:maskView];
         self.maskView = maskView;
         
@@ -55,6 +57,11 @@
     }
     
     return self;
+}
+
+- (void)setMaskColor:(UIColor *)maskColor {
+    _maskColor = maskColor;
+    [self.maskView fadeHeadAndTailWithColor:maskColor];
 }
 
 - (void)updatePageControl:(NSUInteger)index {
@@ -96,19 +103,31 @@
     self.pageControl.numberOfPages = n;
     
     NSDictionary *titleTextAttributes = self.navigationBar.titleTextAttributes;
+    BOOL usingTitleView = [self.dataSource shouldUsingTitleView];
+    self.pageControl.hidden = usingTitleView;
     
     for (int i = 0; i < n; i++) {
-        NSString *title = [self.dataSource titleAtIndex:i];
-        
-        CGRect frame = kFrame;
-        frame.origin.x = i * CGRectGetWidth(kFrame);
-        frame.origin.y = -5;
-        
-        UILabel *label = [[UILabel alloc] initWithFrame:frame];
-        label.attributedText = [[NSAttributedString alloc] initWithString:title attributes:titleTextAttributes];
-        label.textAlignment = NSTextAlignmentCenter;
-        [self.titleLabels addObject:label];
-        [self.scrollView addSubview:label];
+        if (!usingTitleView) {
+            NSString *title = [self.dataSource titleAtIndex:i];
+            
+            CGRect frame = kFrame;
+            frame.origin.x = i * CGRectGetWidth(kFrame);
+            frame.origin.y = -5;
+            
+            UILabel *label = [[UILabel alloc] initWithFrame:frame];
+            label.attributedText = [[NSAttributedString alloc] initWithString:title attributes:titleTextAttributes];
+            label.textAlignment = NSTextAlignmentCenter;
+            [self.titleLabels addObject:label];
+            [self.scrollView addSubview:label];
+        } else {
+            UIView *titleView = [self.dataSource titleViewAtIndex:i];
+            CGRect frame = kFrame;
+            frame.origin.x = i * CGRectGetWidth(kFrame);
+            
+            titleView.frame = frame;
+            
+            [self.scrollView addSubview:titleView];
+        }
     }
     
     self.currentIndex = 0;

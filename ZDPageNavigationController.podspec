@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "ZDPageNavigationController"
-  s.version          = "0.1.3"
+  s.version          = "0.1.4"
   s.summary          = "A pagable NavigationController in Objective-C."
   s.homepage         = "https://github.com/0dayZh/ZDPageNavigationController"
   s.license          = 'MIT'
