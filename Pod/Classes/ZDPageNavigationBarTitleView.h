@@ -27,9 +27,10 @@
 @property (nonatomic, assign) NSUInteger    currentIndex;
 @property (nonatomic, assign) CGFloat       percent;
 @property (nonatomic, weak) id<ZDPageNavigationBarTitleViewDataSource> dataSource;
+@property (nonatomic, assign) CGRect    titleViewBounds;
 
 
-- (instancetype)initWithNavigationBar:(UINavigationBar *)navigationBar;
+- (instancetype)initWithNavigationBar:(UINavigationBar *)navigationBar titleViewBounds:(CGRect)bounds;
 
 - (void)setCurrentIndex:(NSUInteger)currentIndex animated:(BOOL)animated;
 - (void)reloadData;

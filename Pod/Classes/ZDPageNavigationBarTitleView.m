@@ -10,7 +10,6 @@
 #import "UIView+FadeTruncate.h"
 #import "SMPageControl.h"
 
-#define kFrame  CGRectMake(0, 0, 180, 40)
 #define kPageControlFrame CGRectMake(0, 32, 160, 10)
 
 @interface ZDPageNavigationBarTitleView ()
@@ -26,15 +25,16 @@
     NSUInteger  _n;
 }
 
-- (instancetype)initWithNavigationBar:(UINavigationBar *)navigationBar {
-    self = [super initWithFrame:kFrame];
+- (instancetype)initWithNavigationBar:(UINavigationBar *)navigationBar titleViewBounds:(CGRect)bounds {
+    self = [super initWithFrame:bounds];
     if (self) {
         self.navigationBar = navigationBar;
         self.titleLabels = [@[] mutableCopy];
+        _titleViewBounds = bounds;
         
         self.backgroundColor = [UIColor clearColor];
         
-        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:kFrame];
+        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.titleViewBounds];
         scrollView.showsHorizontalScrollIndicator = NO;
         scrollView.showsVerticalScrollIndicator = NO;
         scrollView.userInteractionEnabled = YES;
@@ -42,7 +42,7 @@
         [self addSubview:scrollView];
         self.scrollView = scrollView;
         
-        UIView *maskView = [[UIView alloc] initWithFrame:kFrame];
+        UIView *maskView = [[UIView alloc] initWithFrame:self.titleViewBounds];
         maskView.backgroundColor = [UIColor clearColor];
         maskView.userInteractionEnabled = NO;
         
@@ -86,7 +86,7 @@
 
 - (void)setCurrentIndex:(NSUInteger)currentIndex animated:(BOOL)animated {
     _currentIndex = currentIndex;
-    [self.scrollView setContentOffset:CGPointMake(currentIndex * CGRectGetWidth(kFrame), 0) animated:animated];
+    [self.scrollView setContentOffset:CGPointMake(currentIndex * CGRectGetWidth(self.titleViewBounds), 0) animated:animated];
     _percent = self.scrollView.contentOffset.x / (self.scrollView.contentSize.width - CGRectGetWidth(self.scrollView.bounds));
     [self updatePageControl:currentIndex];
 }
@@ -99,7 +99,7 @@
     
     NSUInteger n = [self.dataSource numberOfTitles];
     _n = n;
-    self.scrollView.contentSize = (CGSize){n * CGRectGetWidth(kFrame), CGRectGetHeight(kFrame)};
+    self.scrollView.contentSize = (CGSize){n * CGRectGetWidth(self.titleViewBounds), CGRectGetHeight(self.titleViewBounds)};
     
     self.pageControl.numberOfPages = n;
     
@@ -111,8 +111,8 @@
         if (!usingTitleView) {
             NSString *title = [self.dataSource titleAtIndex:i];
             
-            CGRect frame = kFrame;
-            frame.origin.x = i * CGRectGetWidth(kFrame);
+            CGRect frame = self.titleViewBounds;
+            frame.origin.x = i * CGRectGetWidth(self.titleViewBounds);
             frame.origin.y = -5;
             
             UILabel *label = [[UILabel alloc] initWithFrame:frame];
@@ -122,8 +122,8 @@
             [self.scrollView addSubview:label];
         } else {
             UIView *titleView = [self.dataSource titleViewAtIndex:i];
-            CGRect frame = kFrame;
-            frame.origin.x = i * CGRectGetWidth(kFrame);
+            CGRect frame = self.titleViewBounds;
+            frame.origin.x = i * CGRectGetWidth(self.titleViewBounds);
             
             titleView.frame = frame;
             

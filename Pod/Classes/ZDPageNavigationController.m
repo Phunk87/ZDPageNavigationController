@@ -32,6 +32,7 @@ UIScrollViewDelegate
     self.navigationBar.translucent = NO;
     self.usingTitleView = NO;
     self.maskColor = [UIColor whiteColor];
+    self.titleViewBounds = CGRectMake(0, 0, 140, 40);
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -108,7 +109,7 @@ UIScrollViewDelegate
     _pageViewControllers = pageViewControllers;
     
     if (!_titleView) {
-        self.titleView = [[ZDPageNavigationBarTitleView alloc] initWithNavigationBar:self.navigationBar];
+        self.titleView = [[ZDPageNavigationBarTitleView alloc] initWithNavigationBar:self.navigationBar titleViewBounds:self.titleViewBounds];
         self.titleView.dataSource = self;
         self.pageViewController.navigationItem.titleView = self.titleView;
         self.titleView.maskColor = self.maskColor;
