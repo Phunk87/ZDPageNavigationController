@@ -10,7 +10,7 @@
 #import "UIView+FadeTruncate.h"
 #import "SMPageControl.h"
 
-#define kFrame  CGRectMake(0, 0, 200, 40)
+#define kFrame  CGRectMake(0, 0, 180, 40)
 #define kPageControlFrame CGRectMake(0, 32, 160, 10)
 
 @interface ZDPageNavigationBarTitleView ()
