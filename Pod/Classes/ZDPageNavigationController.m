@@ -19,6 +19,7 @@ UIScrollViewDelegate
 
 @property (nonatomic, strong) ZDPageNavigationBarTitleView  *titleView;
 @property (nonatomic, strong) UIPageViewController  *pageViewController;
+@property (nonatomic, assign) NSUInteger    index;
 
 @end
 
@@ -33,6 +34,7 @@ UIScrollViewDelegate
     self.usingTitleView = NO;
     self.maskColor = [UIColor whiteColor];
     self.titleViewBounds = CGRectMake(0, 0, 140, 40);
+    _index = 0;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -132,10 +134,9 @@ UIScrollViewDelegate
 
 #pragma mark - <UIScrollViewDelegate>
 
-static NSUInteger s_index = 0;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat width = CGRectGetWidth(scrollView.frame);
-    CGFloat percent = (scrollView.contentOffset.x + width * s_index - width) / ((self.pageViewControllers.count - 1) * width);
+    CGFloat percent = (scrollView.contentOffset.x + width * self.index - width) / ((self.pageViewControllers.count - 1) * width);
     self.titleView.percent = percent;
 }
 
@@ -190,7 +191,7 @@ static NSUInteger s_index = 0;
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
     if (completed) {
         UIViewController *selectedVC = [self.pageViewController.viewControllers lastObject];
-        s_index = [self.pageViewControllers indexOfObject:selectedVC];
+        self.index = [self.pageViewControllers indexOfObject:selectedVC];
     }
     
     [self _updateNavigationItemsToViewController:[self.pageViewController.viewControllers lastObject]
@@ -198,16 +199,16 @@ static NSUInteger s_index = 0;
 }
 
 - (void)setCurrentIndex:(NSUInteger)index animated:(BOOL)animated {
-    if (s_index == index) {
+    if (self.index == index) {
         return;
     }
     
     __weak typeof(self) wself = self;
     [self.pageViewController setViewControllers:@[self.pageViewControllers[index]]
-                                      direction:index > s_index ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse
+                                      direction:index > self.index ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse
                                        animated:animated
                                      completion:^(BOOL finished) {
-                                         s_index = index;
+                                         _index = index;
                                          [wself _updateNavigationItemsToViewController:[wself.pageViewController.viewControllers lastObject]
                                                                              animated:animated];
                                      }];
