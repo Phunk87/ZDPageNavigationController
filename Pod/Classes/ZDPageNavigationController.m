@@ -185,7 +185,7 @@ UIScrollViewDelegate
 #pragma mark - <UIPageViewControllerDelegate>
 
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers {
-    [self _updateNavigationItemsToViewController:nil animated:YES];
+//    [self _updateNavigationItemsToViewController:nil animated:YES];
 }
 
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
