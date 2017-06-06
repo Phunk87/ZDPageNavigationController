@@ -136,8 +136,12 @@ UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat width = CGRectGetWidth(scrollView.frame);
-    CGFloat percent = (scrollView.contentOffset.x + width * self.index - width) / ((self.pageViewControllers.count - 1) * width);
-    self.titleView.percent = percent;
+    if (self.pageViewControllers.count <= 1) {
+        self.titleView.percent = 0;
+    } else {
+        CGFloat percent = (scrollView.contentOffset.x + width * self.index - width) / ((self.pageViewControllers.count - 1) * width);
+        self.titleView.percent = percent;
+    }
 }
 
 #pragma mark - <ZDPageNavigationBarTitleViewDataSource>
