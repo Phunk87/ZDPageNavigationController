@@ -60,6 +60,10 @@
     return self;
 }
 
+- (CGSize)intrinsicContentSize {
+    return self.titleViewBounds.size;
+}
+
 - (void)setMaskColor:(UIColor *)maskColor {
     _maskColor = maskColor;
     [self.maskView fadeHeadAndTailWithColor:maskColor];
